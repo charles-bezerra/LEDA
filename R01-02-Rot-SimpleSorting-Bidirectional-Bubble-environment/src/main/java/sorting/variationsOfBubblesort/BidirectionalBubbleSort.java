@@ -1,6 +1,7 @@
 package sorting.variationsOfBubblesort;
 
 import sorting.AbstractSorting;
+import util.Util;
 
 /**
  * This bubble sort variation has two internal iterations. In the first, it
@@ -14,7 +15,22 @@ public class BidirectionalBubbleSort<T extends Comparable<T>> extends
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not Implemented yet!");
+		boolean varg = Util.isValidArgument(array, leftIndex, rightIndex);
+
+		if (varg && leftIndex < rightIndex) {
+			for (int i = 1; i <= rightIndex; i++) {
+				if (array[i-1].compareTo(array[i]) > 0) {
+					Util.swap(array, i-1, i);
+				}
+			}
+
+			for (int i = rightIndex-1; i >= 0; i--) {
+				if (array[i+1].compareTo(array[i]) < 0) {
+					Util.swap(array, i+1, i);
+				}
+			}
+
+			sort(array, leftIndex+1, rightIndex-1);
+		}
 	}
 }

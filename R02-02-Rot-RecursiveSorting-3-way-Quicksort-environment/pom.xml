@@ -27,13 +27,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>RELEASE</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -51,7 +45,7 @@
 				<executions>
 					<execution>
 						<id>auto-clean</id>
-						<phase>initialize</phase>
+						<phase>build</phase>
 						<goals>
 							<goal>clean</goal>
 						</goals>
@@ -73,7 +67,7 @@
 							<!-- insira sua matricula -->
 							<matricula>119110595</matricula>
 							<!-- insira o ID correto da atividade e a turma -->
-							<roteiro>R01-02</roteiro>
+							<roteiro>R02-02</roteiro>
 							<!-- NÃO MODIFIQUE AS TAGS ABAIXO -->
 							<semestre>2020.1</semestre>
 							<url>http://150.165.15.10:81/submitAtividade</url>

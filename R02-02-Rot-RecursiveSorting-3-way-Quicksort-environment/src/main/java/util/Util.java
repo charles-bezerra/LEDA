@@ -40,8 +40,4 @@ public class Util {
 		}
 		return result;
 	}
-
-	public static boolean isValidArgument (Object[] array, int leftIndex, int rightIndex) {
-		return (rightIndex < array.length && rightIndex >= 0) && (leftIndex < array.length && leftIndex >= 0);
-	}
 }
