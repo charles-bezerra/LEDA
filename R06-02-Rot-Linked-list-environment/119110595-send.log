@@ -7,3 +7,13 @@
   <level>FINE</level>
   <message>File 119110595-CHARLES BEZERRA DE OLIVEIRA JUNIOR.zip was received. It was sent by CHARLES BEZERRA DE OLIVEIRA JUNIOR from IP 192.168.0.104 at 22-04-2021 16*24*23</message>
 </record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-26T09:55:24.215-0300</date>
+  <logger>CHARLES BEZERRA DE OLIVEIRA JUNIOR</logger>
+  <level>FINE</level>
+  <message>File 119110595-CHARLES BEZERRA DE OLIVEIRA JUNIOR.zip was received. It was sent by CHARLES BEZERRA DE OLIVEIRA JUNIOR from IP 192.168.0.104 at 26-04-2021 09*55*24</message>
+</record>
