@@ -5,11 +5,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import adt.bst.BSTImpl;
 import adt.bt.BTNode;
 
 public class StudentBSTTest {
 
 	private BSTImpl<Integer> tree;
+	private BSTImpl<Integer> tree1;
+	private BSTImpl<Integer> tree2;
+
 	private BTNode<Integer> NIL = new BTNode<Integer>();
 
 	private void fillTree() {
@@ -19,9 +23,25 @@ public class StudentBSTTest {
 		}
 	}
 
+	private void fillTree2() {
+		Integer[] array = { 6, 23, -34, 5, 9, 2, 0, 76, 12, 67, 232, -40 };
+		for (int i : array) {
+			tree1.insert(i);
+		}
+	}
+
+	private void fillTree3() {
+		Integer[] array = { 6, 23, -34, 5, 9, 2, 0, 76, 12, 67, -50 };
+		for (int i : array) {
+			tree2.insert(i);
+		}
+	}
+
 	@Before
 	public void setUp() {
 		tree = new BSTImpl<>();
+		tree1 = new BSTImpl<>();
+		tree2 = new BSTImpl<>();
 	}
 
 	@Test
@@ -110,7 +130,8 @@ public class StudentBSTTest {
 	public void testHeight() {
 		fillTree(); // -40 -34 0 2 5 6 9 12 23 67 76 232
 
-		Integer[] preOrder = new Integer[] { 6, -34, -40, 5, 2, 0, 23, 9, 12, 76, 67, 232 };
+		Integer[] preOrder = new Integer[] { 6, -34, -40, 5, 2, 0, 23, 9, 12,
+				76, 67, 232 };
 		assertArrayEquals(preOrder, tree.preOrder());
 		assertEquals(4, tree.height());
 
@@ -149,5 +170,27 @@ public class StudentBSTTest {
 		assertEquals(new Integer(-40), tree.search(-40).getData());
 		assertEquals(new Integer(-34), tree.search(-34).getData());
 		assertEquals(NIL, tree.search(2534));
+	}
+
+	@Test
+	public void testBSTManipulationEquals() {
+		fillTree();
+		fillTree2();
+		fillTree3();
+
+		SimpleBSTManipulationImpl<Integer> sp = new SimpleBSTManipulationImpl<>();
+		assertTrue(sp.equals(tree, tree1));
+		assertFalse(sp.equals(tree1, tree2));
+	}
+
+	@Test
+	public void testBSTManipulationIsSimilar() {
+		fillTree();
+		fillTree2();
+		fillTree3();
+
+		SimpleBSTManipulationImpl<Integer> sp = new SimpleBSTManipulationImpl<>();
+		assertTrue(sp.isSimilar(tree, tree2));
+		assertTrue(sp.isSimilar(tree1, tree2));
 	}
 }

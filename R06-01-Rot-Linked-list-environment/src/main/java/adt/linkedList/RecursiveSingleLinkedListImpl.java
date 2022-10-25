@@ -1,115 +1,93 @@
 package adt.linkedList;
 
 public class RecursiveSingleLinkedListImpl<T> implements LinkedList<T> {
+
 	protected T data;
 	protected RecursiveSingleLinkedListImpl<T> next;
 
-	public RecursiveSingleLinkedListImpl() {}
+	public RecursiveSingleLinkedListImpl() {
+
+	}
 
 	@Override
 	public boolean isEmpty() {
 		return this.data == null;
 	}
 
-	@Override
-	public int size() {
-		int resp = 0;
-		if (!isEmpty()) {
-			return 1 + count(next);
+	private int size(RecursiveSingleLinkedListImpl<T> currentNode) {
+		if (currentNode.isEmpty()) {
+			return 0;
+		} else {
+			return 1 + size(currentNode.getNext());
 		}
-		return resp;
 	}
 
-	private int count(RecursiveSingleLinkedListImpl<T> currentNode) {
-		int resp = 0;
+	@Override
+	public int size() {
+		return this.size(this);
+	}
+
+	private T search(RecursiveSingleLinkedListImpl<T> currentNode, T element) {
+		T result = null;
+
 		if (!currentNode.isEmpty()) {
-			resp = 1 + count(currentNode.getNext());
+			if (currentNode.data.equals(element)) {
+				result = currentNode.data;
+			} else {
+				result = search(currentNode.getNext(), element);
+			}
 		}
-		return resp;
+
+		return result;
 	}
 
 	@Override
 	public T search(T element) {
-		T resp = null;
-
-		if (!isEmpty()) {
-			if (data.equals(element)) {
-				resp = data;
-			} else {
-				resp = search(element, next);
-			}
-		}
-		return resp;
+		return search(this, element);
 	}
 
-	private T search(T element, RecursiveSingleLinkedListImpl<T> currentNode) {
-		T resp = null;
-		if (!currentNode.isEmpty()) {
-			if (currentNode.getData().equals(element)) {
-				resp = currentNode.getData();
-			} else {
-				resp = search(element, currentNode.getNext());
-			}
+	private void insert(RecursiveSingleLinkedListImpl<T> currentNode, T element) {
+		if (currentNode.isEmpty()) {
+			currentNode.setData(element);
+			currentNode.setNext(new RecursiveSingleLinkedListImpl<>());
+		} else {
+			insert(currentNode.getNext(), element);
 		}
-		return resp;
 	}
 
 	@Override
 	public void insert(T element) {
-		if (!isEmpty()) {
-			this.insert(element, this.next);
-		} else {
-			this.setData(element);
-		}
+		insert(this, element);
 	}
 
-	private void insert(T element, RecursiveSingleLinkedListImpl<T> currentNode) {
-		if (currentNode.isEmpty()) {
-			currentNode.setData(element);
-			currentNode.setNext(new RecursiveSingleLinkedListImpl<T>());
-		} else {
-			insert(element, currentNode.getNext());
+	private void remove(RecursiveSingleLinkedListImpl<T> currentNode, T element) {
+		if (!currentNode.isEmpty()) {
+			if (currentNode.data.equals(element)) {
+				currentNode.setData(currentNode.getNext().getData());
+				currentNode.setNext(currentNode.getNext().getNext());
+			} else {
+				remove(currentNode.getNext(), element);
+			}
 		}
 	}
 
 	@Override
 	public void remove(T element) {
-		if (!isEmpty()) {
-			if (this.data.equals(element)) {
-				setData(null);
-				setNext(null);
-			} else {
-				remove(element, this.next);
-			}
-		}
+		remove(this, element);
 	}
 
-	private void remove(T elemente, RecursiveSingleLinkedListImpl<T> currentNode) {
+	private void fillArray(T[] array, RecursiveSingleLinkedListImpl<T> currentNode, int i) {
 		if (!currentNode.isEmpty()) {
-			if (currentNode.getData().equals(elemente)) {
-				currentNode.setData(currentNode.getNext().getData());
-				currentNode.setNext(currentNode.getNext().getNext());
-			} else {
-				remove(elemente, currentNode.getNext());
-			}
+			array[i] = currentNode.getData();
+			fillArray(array, currentNode.getNext(), ++i);
 		}
 	}
 
 	@Override
 	public T[] toArray() {
-		T[] resp = (T[]) new Object[size()];
-		if (!isEmpty()) {
-			resp[0] = data;
-			fillArray(resp, this.next, 1);
-		}
-		return resp;
-	}
-
-	private void fillArray(T[] array, RecursiveSingleLinkedListImpl<T> currentNode, int index) {
-		if (!currentNode.isEmpty()) {
-			array[index] = currentNode.getData();
-			fillArray(array, currentNode.getNext(), index+1);
-		}
+		T[] array = (T[]) new Object[size()];
+		fillArray(array, this, 0);
+		return array;
 	}
 
 	public T getData() {

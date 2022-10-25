@@ -1,47 +1,55 @@
 package adt.linkedList;
 
-public class DoubleLinkedListImpl<T> extends SingleLinkedListImpl<T> implements DoubleLinkedList<T> {
+public class DoubleLinkedListImpl<T> extends SingleLinkedListImpl<T> implements
+		DoubleLinkedList<T> {
+
 	protected DoubleLinkedListNode<T> last;
 
 	@Override
 	public void insertFirst(T element) {
-		if (isEmpty()) {
-			this.setLast(new DoubleLinkedListNode<>(element, new DoubleLinkedListNode<>(), new DoubleLinkedListNode<>()));
-			this.setHead(this.last);
-		} else {
-			DoubleLinkedListNode<T> newNode = new DoubleLinkedListNode<>();
-			newNode.setData(this.head.getData());
-			newNode.setNext(this.head.getNext());
+		DoubleLinkedListNode<T> newNode = new DoubleLinkedListNode<>();
 
-			DoubleLinkedListNode<T> newHead = new DoubleLinkedListNode<>();
-			newHead.setData(element);
-			newHead.setNext(newNode);
-			newHead.setPrevious(new DoubleLinkedListNode<T>());
+		newNode.setData(element);
+		newNode.setNext(this.head);
+		newNode.setPrevious(new DoubleLinkedListNode<>());
 
-			newNode.setPrevious(newHead);
-
-			this.setHead(newHead);
+		if (this.isEmpty()) {
+			this.last = newNode;
 		}
+
+		this.head = newNode;
 	}
 
 	@Override
 	public void removeFirst() {
-		this.setHead(this.getHead().getNext());
-		if (this.getHead().getNext().isNIL()) {
-			this.setLast((DoubleLinkedListNode<T>) this.head);
+		if (!this.getHead().isNIL()) {
+			if (this.getHead().equals(this.getLast())) {
+				this.head = new DoubleLinkedListNode<>();
+				this.last = new DoubleLinkedListNode<>();
+			} else {
+				this.head = this.getHead().getNext();
+			}
+		}
+	}
+
+	private void removeLast(SingleLinkedListNode<T> currentNode) {
+		if (!currentNode.isNIL()) {
+			if (currentNode.getNext().isNIL()) {
+				currentNode.setData(null);
+				currentNode.setNext(new SingleLinkedListNode<>());
+			} else {
+				removeLast(currentNode.getNext());
+			}
 		}
 	}
 
 	@Override
 	public void removeLast() {
-		removeLast(this.getHead());
-	}
-
-
-	private void removeLast(SingleLinkedListNode<T> currentNode) {
-		if (currentNode.getNext().isNIL()) {
-			currentNode.setData(null);
-			currentNode.setNext(new SingleLinkedListNode<>());
+		if (this.getHead().getNext().isNIL()) {
+			this.head = new DoubleLinkedListNode<>();
+			this.last = new DoubleLinkedListNode<>();
+		} else {
+			removeLast(this.head);
 		}
 	}
 

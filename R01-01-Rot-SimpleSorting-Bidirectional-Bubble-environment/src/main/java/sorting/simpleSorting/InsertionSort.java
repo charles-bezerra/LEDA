@@ -13,16 +13,14 @@ public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		if (leftIndex <= rightIndex) {
-			T key = array[leftIndex];
-			int j = leftIndex;
+		for (int i = leftIndex + 1; i <= rightIndex; i++) {
+			T key = array[i];
+			int j = i - 1;
 
-			while (j > 0 && key.compareTo(array[j-1]) < 0) {
-				Util.swap(array, j, j-1);
+			while (j >= leftIndex && array[j].compareTo(key) > 0) {
+				Util.swap(array, j+1, j);
 				j--;
 			}
-
-			sort(array, leftIndex+1, rightIndex);
 		}
 	}
 }

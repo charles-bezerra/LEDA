@@ -4,15 +4,14 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
+
 	private DoubleLinkedList<Integer> lista3;
 
 	@Before
 	public void setUp() throws Exception {
 
-		this.getImplementations();
+		getImplementations();
 
 		// Lista com 3 elementos.
 		lista1.insert(3);
@@ -41,7 +40,7 @@ public class StudentDoubleLinkedListTest extends StudentLinkedListTest {
 	@Test
 	public void testRemoveFirst() {
 		((DoubleLinkedList<Integer>) lista1).removeFirst();
-		Assert.assertArrayEquals(new Integer[] {2, 1}, lista1.toArray());
+		Assert.assertArrayEquals(new Integer[] { 2, 1 }, lista1.toArray());
 	}
 
 	@Test

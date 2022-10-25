@@ -3,10 +3,9 @@ package adt.bt;
 import adt.bst.BSTNode;
 
 public class Util {
-
-
 	/**
 	 * A rotacao a esquerda em node deve subir e retornar seu filho a direita
+	 * 
 	 * @param node
 	 * @return - noh que se tornou a nova raiz
 	 */
@@ -21,6 +20,7 @@ public class Util {
 
 	/**
 	 * A rotacao a direita em node deve subir e retornar seu filho a esquerda
+	 * 
 	 * @param node
 	 * @return noh que se tornou a nova raiz
 	 */

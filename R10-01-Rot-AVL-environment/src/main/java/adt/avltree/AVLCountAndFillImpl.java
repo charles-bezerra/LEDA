@@ -12,7 +12,7 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 	private int RLcounter;
 
 	public AVLCountAndFillImpl() {
-		
+
 	}
 
 	@Override
@@ -48,8 +48,7 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 			BSTNode<T> pivot = Util.rightRotation(node);
 			if (node.equals(root)) {
 				root = pivot;
-			} 
-			else {
+			} else {
 				if (node.getParent().getData().compareTo(node.getData()) > 0) {
 					node.getParent().setLeft(pivot);
 				} else {
@@ -57,10 +56,11 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 				}
 			}
 
-			if (isDouble) LRcounter++;
-			else LLcounter++;
-		} 
-		else if (balance < -1) {
+			if (isDouble)
+				LRcounter++;
+			else
+				LLcounter++;
+		} else if (balance < -1) {
 			if (calculateBalance((BSTNode<T>) node.getRight()) > 0) {
 				node.setRight(Util.rightRotation((BSTNode<T>) node.getRight()));
 				isDouble = true;
@@ -76,11 +76,13 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 				}
 			}
 
-			if (isDouble) RLcounter++;
-			else RRcounter++;
+			if (isDouble)
+				RLcounter++;
+			else
+				RRcounter++;
 		}
 	}
-	
+
 	public void insertWithoutBalance(T element) {
 		insertWithoutBalance(element, root);
 	}
@@ -91,7 +93,7 @@ public class AVLCountAndFillImpl<T extends Comparable<T>> extends
 			currentNode.setLeft(new BSTNode.Builder<T>().parent(currentNode).build());
 			currentNode.setRight(new BSTNode.Builder<T>().parent(currentNode).build());
 		} else {
-			if (currentNode.getData().compareTo(element) > 0) { 
+			if (currentNode.getData().compareTo(element) > 0) {
 				insert(element, (BSTNode<T>) currentNode.getLeft());
 			} else {
 				insert(element, (BSTNode<T>) currentNode.getRight());

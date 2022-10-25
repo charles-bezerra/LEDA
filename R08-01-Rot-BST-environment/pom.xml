@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.edu.ufcg.ccc</groupId>
@@ -25,7 +24,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.1</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -69,7 +68,7 @@
 							<!-- insira o ID correto da atividade e a turma -->
 							<roteiro>R08-01</roteiro>
 							<!-- NÃO MODIFIQUE AS TAGS ABAIXO -->
-							<semestre>2021.1</semestre>
+							<semestre>2021.2</semestre>
 							<url>http://150.165.15.10:81/submitAtividade</url>
 						</configuration>
 					</execution>

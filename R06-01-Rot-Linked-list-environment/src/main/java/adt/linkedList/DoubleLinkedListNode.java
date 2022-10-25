@@ -6,7 +6,8 @@ public class DoubleLinkedListNode<T> extends SingleLinkedListNode<T> {
 	public DoubleLinkedListNode() {
 	}
 
-	public DoubleLinkedListNode(T data, DoubleLinkedListNode<T> next, DoubleLinkedListNode<T> previous) {
+	public DoubleLinkedListNode(T data, DoubleLinkedListNode<T> next,
+			DoubleLinkedListNode<T> previous) {
 		super(data, next);
 		this.previous = previous;
 	}

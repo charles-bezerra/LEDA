@@ -11,20 +11,17 @@ public class RecursiveDoubleLinkedListImpl<T> extends
 
 	@Override
 	public void insertFirst(T element) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+
 	}
 
 	@Override
 	public void removeFirst() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+
 	}
 
 	@Override
 	public void removeLast() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Not implemented yet!");
+
 	}
 
 	public RecursiveDoubleLinkedListImpl<T> getPrevious() {

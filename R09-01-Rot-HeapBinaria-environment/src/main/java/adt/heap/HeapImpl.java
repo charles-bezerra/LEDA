@@ -27,6 +27,7 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 	 * como max-heap ou min-heap.
 	 */
 	protected Comparator<T> comparator;
+
 	private static final int INITIAL_SIZE = 20;
 	private static final int INCREASING_FACTOR = 10;
 
@@ -159,15 +160,15 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 		if (comparator instanceof ComparatorMinHeap) {
 			setComparator(new ComparatorMaxHeap());
 		}
-	
+
 		buildHeap(array);
-	
+
 		for (int i = index; i >= 1; i--) {
 			Util.swap(heap, 0, i);
 			this.index--;
 			heapify(0);
 		}
-		
+
 		setComparator(null);
 		this.index = -1;
 		return heap;
@@ -189,4 +190,5 @@ public class HeapImpl<T extends Comparable<T>> implements Heap<T> {
 	public T[] getHeap() {
 		return heap;
 	}
+
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-14T07:38:28.356-0300</date>
+  <logger>CHARLES BEZERRA DE OLIVEIRA JUNIOR</logger>
+  <level>FINE</level>
+  <message>File 119110595-CHARLES BEZERRA DE OLIVEIRA JUNIOR.zip was received. It was sent by CHARLES BEZERRA DE OLIVEIRA JUNIOR from IP 192.168.0.2 at 14-06-2022 07*38*28</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-06-14T07:44:19.829-0300</date>
+  <logger>CHARLES BEZERRA DE OLIVEIRA JUNIOR</logger>
+  <level>FINE</level>
+  <message>File 119110595-CHARLES BEZERRA DE OLIVEIRA JUNIOR.zip was received. It was sent by CHARLES BEZERRA DE OLIVEIRA JUNIOR from IP 192.168.0.2 at 14-06-2022 07*44*19</message>
+</record>

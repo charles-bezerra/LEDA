@@ -24,6 +24,9 @@ import adt.bt.Util;
 public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 		AVLTree<T> {
 
+	// TODO Do not forget: you must override the methods insert and remove
+	// conveniently.
+
 	@Override
 	protected void insert(T element, BSTNode<T> currentNode) {
 		if (currentNode.isEmpty()) {
@@ -93,8 +96,7 @@ public class AVLTreeImpl<T extends Comparable<T>> extends BSTImpl<T> implements
 			BSTNode<T> pivot = Util.rightRotation(node);
 			if (node.equals(root)) {
 				root = pivot;
-			} 
-			else {
+			} else {
 				if (node.getParent().getData().compareTo(node.getData()) > 0) {
 					node.getParent().setLeft(pivot);
 				} else {

@@ -22,9 +22,7 @@ public class RecursiveBubbleSort<T extends Comparable<T>> extends
 					Util.swap(array, i-1, i);
 				}
 			}
-
 			sort(array, leftIndex+1, rightIndex);
 		}
 	}
-
 }
